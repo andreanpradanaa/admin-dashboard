@@ -46,12 +46,12 @@ function Home() {
                   <div className="card bg-primary text-white mb-4">
                     <div className="card-body">Data Clients </div>
                     <div className="card-footer d-flex align-items-center justify-content-between">
-                      <a
+                      <Link
                         className="small text-white stretched-link"
-                        href="/clients"
+                        to={{ pathname: `/clients` }}
                       >
                         Lihat Deatil
-                      </a>
+                      </Link>
                       <div className="small text-white">
                         <i className="fas fa-angle-right"></i>
                       </div>
@@ -62,12 +62,12 @@ function Home() {
                   <div className="card bg-warning text-white mb-4">
                     <div className="card-body">Data Teams</div>
                     <div className="card-footer d-flex align-items-center justify-content-between">
-                      <a
+                      <Link
                         className="small text-white stretched-link"
-                        href="/teams"
+                        to={{ pathname: `/teams` }}
                       >
                         Lihat Deatil
-                      </a>
+                      </Link>
                       <div className="small text-white">
                         <i className="fas fa-angle-right"></i>
                       </div>
@@ -78,12 +78,12 @@ function Home() {
                   <div className="card bg-success text-white mb-4">
                     <div className="card-body">Data Projects</div>
                     <div className="card-footer d-flex align-items-center justify-content-between">
-                      <a
+                      <Link
                         className="small text-white stretched-link"
-                        href="projects"
+                        to={{ pathname: `/projects` }}
                       >
                         Lihat Deatil
-                      </a>
+                      </Link>
                       <div className="small text-white">
                         <i className="fas fa-angle-right"></i>
                       </div>
