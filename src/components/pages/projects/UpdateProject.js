@@ -43,7 +43,7 @@ const UpdateProject = (props) => {
 
     axios
       .put(
-        `http://localhost:4000/api/projects/update/${props.match.params.id}`,
+        `https://backend-intens.herokuapp.com/api/projects/update/${props.match.params.id}`,
         formData
       )
       .then((res) => alert(res.data), history.push("/projects"))

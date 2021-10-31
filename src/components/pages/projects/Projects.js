@@ -33,7 +33,7 @@ const Projects = ({ posts }) => {
   // Delete by iD
   const deleteProject = (id) => {
     axios
-      .delete(`http://localhost:4000/api/projects/${id}`)
+      .delete(`https://backend-intens.herokuapp.com/api/projects/${id}`)
       .then((res) => alert(res.data));
     setProject(project.filter((elem) => elem._id !== id));
   };

@@ -43,7 +43,7 @@ const UpdateTeam = (props) => {
 
     axios
       .put(
-        `http://localhost:4000/api/teams/update/${props.match.params.id}`,
+        `https://backend-intens.herokuapp.com/api/teams/update/${props.match.params.id}`,
         formData
       )
       .then((res) => alert(res.data), history.push("/teams"))
@@ -54,7 +54,9 @@ const UpdateTeam = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/teams/${props.match.params.id}`)
+      .get(
+        `https://backend-intens.herokuapp.com/api/teams/${props.match.params.id}`
+      )
       .then((res) => [
         setNama(res.data.nama),
         setJabatan(res.data.jabatan),

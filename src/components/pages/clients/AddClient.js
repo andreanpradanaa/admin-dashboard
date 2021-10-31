@@ -39,7 +39,7 @@ const AddClient = ({ posts }) => {
     formData.append("gambar", filename);
 
     axios
-      .post("http://localhost:4000/api/clients/add", formData)
+      .post("https://backend-intens.herokuapp.com/api/clients/add", formData)
       .then((res) => alert(res.data))
       .catch((err) => {
         console.log(err);

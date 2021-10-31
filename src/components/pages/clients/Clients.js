@@ -32,7 +32,7 @@ const Clients = ({ posts, props }) => {
   // Delete by iD
   const deleteClient = (id) => {
     axios
-      .delete(`http://localhost:4000/api/clients/${id}`)
+      .delete(`https://backend-intens.herokuapp.com/api/clients/${id}`)
       .then((res) => alert(res.data));
     setClient(client.filter((elem) => elem._id !== id));
   };

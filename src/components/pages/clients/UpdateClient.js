@@ -42,7 +42,7 @@ const UpdateClient = (props) => {
 
     axios
       .put(
-        `http://localhost:4000/api/clients/update/${props.match.params.id}`,
+        `https://backend-intens.herokuapp.com/api/clients/update/${props.match.params.id}`,
         formData
       )
       .then((res) => alert(res.data), history.push("/clients"))
@@ -53,7 +53,9 @@ const UpdateClient = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/clients/${props.match.params.id}`)
+      .get(
+        `https://backend-intens.herokuapp.com/api/clients/${props.match.params.id}`
+      )
       .then((res) => [setNama(res.data.nama), setFileName(res.data.gambar)])
       .catch((error) => console.log(error));
   }, []);

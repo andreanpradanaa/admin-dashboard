@@ -11,7 +11,7 @@ function Team() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
-      .get(" http://localhost:4000/api/teams")
+      .get(" https://backend-intens.herokuapp.com/api/teams")
       .then((res) => setPosts(res.data))
       .catch((error) => console.log(error));
   });

@@ -11,7 +11,7 @@ function Client() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
-      .get(" http://localhost:4000/api/clients")
+      .get(" https://backend-intens.herokuapp.com/api/clients")
       .then((res) => setPosts(res.data))
       .catch((error) => console.log(error));
   });

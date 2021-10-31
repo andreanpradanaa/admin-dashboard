@@ -41,7 +41,9 @@ function UpdateUser() {
   //function "getPostById"
   const getPostById = async () => {
     //get data from server
-    const response = await axios.get(`http://localhost:4000/api/user/${id}`);
+    const response = await axios.get(
+      `https://backend-intens.herokuapp.com/api/user/${id}`
+    );
     //get response data
 
     //assign data to state
@@ -55,7 +57,7 @@ function UpdateUser() {
 
     //send data to server
     await axios
-      .put(`http://localhost:4000/api/user/update/${id}`, {
+      .put(`https://backend-intens.herokuapp.com/api/user/update/${id}`, {
         username: username,
         password: password,
       })

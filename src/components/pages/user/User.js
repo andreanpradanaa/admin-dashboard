@@ -27,7 +27,7 @@ const User = ({ posts }) => {
   // Delete by iD
   const UserData = (id) => {
     axios
-      .get(`http://localhost:4000/api/user/${id}`)
+      .get(`https://backend-intens.herokuapp.com/api/user/${id}`)
       .then((res) => alert(res.data));
     setUser(user.filter((elem) => elem._id !== id));
   };

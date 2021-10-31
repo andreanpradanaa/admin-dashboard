@@ -40,7 +40,7 @@ const AddProject = () => {
     formData.append("gambar", filename);
 
     axios
-      .post("http://localhost:4000/api/projects/add", formData)
+      .post("https://backend-intens.herokuapp.com/api/projects/add", formData)
       .then((res) => alert(res.data))
       .catch((err) => {
         console.log(err);

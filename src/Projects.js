@@ -9,7 +9,7 @@ function Project() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
-      .get(" http://localhost:4000/api/projects")
+      .get(" https://backend-intens.herokuapp.com/api/projects")
       .then((res) => setPosts(res.data))
       .catch((error) => console.log(error));
   });

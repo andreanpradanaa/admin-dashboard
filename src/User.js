@@ -10,7 +10,7 @@ function UserData() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
-      .get(" http://localhost:4000/api/user")
+      .get(" https://backend-intens.herokuapp.com/api/user")
       .then((res) => setPosts(res.data))
       .catch((error) => console.log(error));
   });
