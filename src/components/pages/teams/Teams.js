@@ -34,7 +34,7 @@ const Teams = ({ posts }) => {
 
   const deleteTeam = (id) => {
     axios
-      .delete(`https://backend-intens.herokuapp.com/api/teams/${id}`)
+      .delete(`http://localhost:4000/api/teams/${id}`)
       .then((res) => alert(res.data));
     setTeam(team.filter((elem) => elem._id !== id));
   };
@@ -83,10 +83,7 @@ const Teams = ({ posts }) => {
                               <img
                                 width="50"
                                 height="50"
-                                src={
-                                  `http://localhost:4000/uploads/teams/` +
-                                  team.gambar
-                                }
+                                src={`https://backend-intens.herokuapp.com/uploads/teams/${team.gambar}`}
                                 alt="..."
                               />
                             </td>

@@ -80,10 +80,7 @@ const Clients = ({ posts, props }) => {
                               <img
                                 width="50"
                                 height="50"
-                                src={
-                                  `http://localhost:4000/uploads/clients/` +
-                                  client.gambar
-                                }
+                                src={`https://backend-intens.herokuapp.com/uploads/clients/${client.gambar}`}
                                 alt="..."
                               />
                             </td>

@@ -82,7 +82,7 @@ const Projects = ({ posts }) => {
                               <img
                                 width="50"
                                 height="50"
-                                src={`http://localhost:4000/uploads/projects/${project.gambar}`}
+                                src={`https://backend-intens.herokuapp.com/uploads/projects/${project.gambar}`}
                                 alt="..."
                               />
                             </td>
