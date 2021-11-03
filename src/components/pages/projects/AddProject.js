@@ -26,7 +26,7 @@ const AddProject = () => {
   };
   const [judul, setJudul] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
-  const [filename, setFileName] = useState("");
+  const [gambar, setFileName] = useState("");
 
   const onChangeFile = (e) => {
     setFileName(e.target.files[0]);
@@ -37,7 +37,7 @@ const AddProject = () => {
 
     formData.append("judul", judul);
     formData.append("deskripsi", deskripsi);
-    formData.append("gambar", filename);
+    formData.append("gambar", gambar);
 
     axios
       .post("https://backend-intens.herokuapp.com/api/projects/add", formData)
@@ -88,7 +88,7 @@ const AddProject = () => {
               <input
                 required={true}
                 type="file"
-                filename="gambar"
+                gambar="gambar"
                 onChange={onChangeFile}
               />
             </div>

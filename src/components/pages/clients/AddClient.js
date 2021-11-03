@@ -26,7 +26,7 @@ const AddClient = ({ posts }) => {
   };
 
   const [nama, setNama] = useState("");
-  const [filename, setFileName] = useState("");
+  const [gambar, setFileName] = useState("");
 
   const onChangeFile = (e) => {
     setFileName(e.target.files[0]);
@@ -36,7 +36,7 @@ const AddClient = ({ posts }) => {
     const formData = new FormData();
 
     formData.append("nama", nama);
-    formData.append("gambar", filename);
+    formData.append("gambar", gambar);
 
     axios
       .post("https://backend-intens.herokuapp.com/api/clients/add", formData)
@@ -72,7 +72,7 @@ const AddClient = ({ posts }) => {
               <input
                 required={true}
                 type="file"
-                filename="gambar"
+                gambar="gambar"
                 onChange={onChangeFile}
               />
             </div>

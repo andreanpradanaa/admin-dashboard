@@ -34,7 +34,7 @@ const Teams = ({ posts }) => {
 
   const deleteTeam = (id) => {
     axios
-      .delete(`http://localhost:4000/api/teams/${id}`)
+      .delete(`https://backend-intens.herokuapp.com/api/teams/${id}`)
       .then((res) => alert(res.data));
     setTeam(team.filter((elem) => elem._id !== id));
   };
