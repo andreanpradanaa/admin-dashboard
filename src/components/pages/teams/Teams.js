@@ -83,7 +83,7 @@ const Teams = ({ posts }) => {
                               <img
                                 width="50"
                                 height="50"
-                                src={`https://backend-intens.herokuapp.com/uploads/teams/${team.gambar}`}
+                                src={team.gambar}
                                 alt="..."
                               />
                             </td>

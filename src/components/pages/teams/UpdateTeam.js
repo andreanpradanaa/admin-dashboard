@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { logoutAction } from "../../../container/actions";
 import Footer from "../../imports/Footer";
 import Navbar from "../../imports/Navbar";
@@ -28,29 +28,65 @@ const UpdateTeam = (props) => {
 
   const [nama, setNama] = useState("");
   const [jabatan, setJabatan] = useState("");
-  const [filename, setFileName] = useState("");
+  const [gambar, setFileName] = useState("");
 
   const onChangeFile = (e) => {
     setFileName(e.target.files[0]);
   };
 
-  const changeOnClick = (e) => {
-    const formData = new FormData();
+  const { id } = useParams();
 
-    formData.append("nama", nama);
-    formData.append("jabatan", jabatan);
-    formData.append("gambar", filename);
+  //hook useEffect
+  useEffect(() => {
+    //panggil function "getPOstById"
+    getPostById();
+  }, []);
 
-    axios
-      .put(
-        `https://backend-intens.herokuapp.com/api/teams/update/${props.match.params.id}`,
-        formData
-      )
-      .then((res) => alert(res.data), history.push("/teams"))
-      .catch((err) => {
-        console.log(err);
-      });
+  //function "getPostById"
+  const getPostById = async () => {
+    //get data from server
+    const response = await axios.get(
+      `https://backend-intens.herokuapp.com/api/teams/${id}`
+    );
+    //get response data
+
+    //assign data to state
+    setNama(response.nama);
+    setJabatan(response.jabatan);
+    setFileName(response.gambar);
   };
+
+  //function "updatePost"
+  const changeOnClick = async (e) => {
+    e.preventDefault();
+
+    //send data to server
+    await axios
+      .put(`https://backend-intens.herokuapp.com/api/teams/update/${id}`, {
+        nama: nama,
+        jabatan: jabatan,
+        gambar: gambar,
+      })
+      .then(() => alert("Client updated!"), history.push("/teams"));
+  };
+
+  // const changeOnClick = (e) => {
+  //   const formData = new FormData();
+
+  //   formData.append("nama", nama);
+  //   formData.append("jabatan", jabatan);
+  //   formData.append("gambar", gambar);
+
+  //   axios
+  //     .put(
+  //       `https://backend-intens.herokuapp.com/api/teams/update/${props.match.params.id}`,
+  //       formData
+  //     )
+  //     .then((res) => alert(res.data), history.push("/teams"))
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   useEffect(() => {
     axios
@@ -113,7 +149,7 @@ const UpdateTeam = (props) => {
                         <input
                           required={true}
                           type="file"
-                          filename="gambar"
+                          gambar="gambar"
                           onChange={onChangeFile}
                         />
                       </div>

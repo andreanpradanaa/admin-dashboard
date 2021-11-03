@@ -69,7 +69,7 @@ const UpdateClient = (props) => {
           <main>
             <div className="container-fluid">
               <ol className="breadcrumb mb-4 mt-5">
-                <li className="breadcrumb-item active">Update Data Project</li>
+                <li className="breadcrumb-item active">Update Data Client</li>
               </ol>
               <div className="card mb-4">
                 <div className="container mb-3 mt-3">

@@ -109,7 +109,7 @@ const User = ({ posts }) => {
                 <span> Teams</span>
               </Link>
 
-              <Link className="nav-link" to={{ pathname: `projects` }}>
+              <Link className="nav-link" to={{ pathname: `/projects` }}>
                 <i className="fas fa-fw fa-table"></i>
                 <span> Projects</span>
               </Link>

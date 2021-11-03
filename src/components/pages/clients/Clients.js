@@ -80,7 +80,7 @@ const Clients = ({ posts, props }) => {
                               <img
                                 width="50"
                                 height="50"
-                                src={`https://backend-intens.herokuapp.com/uploads/clients/${client.gambar}`}
+                                src={client.gambar}
                                 alt="..."
                               />
                             </td>
