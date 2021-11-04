@@ -54,7 +54,9 @@ const UpdateProject = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/projects/${props.match.params.id}`)
+      .get(
+        `https://backend-intens.herokuapp.com/api/projects/${props.match.params.id}`
+      )
       .then((res) => [
         setJudul(res.data.judul),
         setDeskripsi(res.data.deskripsi),
@@ -109,7 +111,6 @@ const UpdateProject = (props) => {
                       <label htmlFor="file">Pilih Gambar</label>
                       <div>
                         <input
-                          required={true}
                           type="file"
                           filename="gambar"
                           onChange={onChangeFile}

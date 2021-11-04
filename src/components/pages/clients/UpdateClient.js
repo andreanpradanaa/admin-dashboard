@@ -37,7 +37,6 @@ const UpdateClient = (props) => {
     const formData = new FormData();
 
     formData.append("nama", nama);
-
     formData.append("gambar", filename);
 
     axios
@@ -92,7 +91,6 @@ const UpdateClient = (props) => {
                       <label htmlFor="file">Pilih Gambar</label>
                       <div>
                         <input
-                          required={true}
                           type="file"
                           filename="gambar"
                           onChange={onChangeFile}

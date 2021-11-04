@@ -37,10 +37,6 @@ const Clients = ({ posts, props }) => {
     setClient(client.filter((elem) => elem._id !== id));
   };
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   return (
     <div>
       <Navbar />
@@ -59,7 +55,6 @@ const Clients = ({ posts, props }) => {
                     to={{
                       pathname: `/add-client`,
                     }}
-                    onClick={handleShow}
                   >
                     Tambah Data
                   </Link>

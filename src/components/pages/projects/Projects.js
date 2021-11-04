@@ -38,10 +38,6 @@ const Projects = ({ posts }) => {
     setProject(project.filter((elem) => elem._id !== id));
   };
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   return (
     <div>
       <Navbar />
@@ -60,7 +56,6 @@ const Projects = ({ posts }) => {
                     to={{
                       pathname: `/add-project`,
                     }}
-                    onClick={handleShow}
                   >
                     Tambah Data
                   </Link>

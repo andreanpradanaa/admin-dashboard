@@ -48,61 +48,56 @@ const AddClient = ({ posts }) => {
   };
 
   return (
-    <>
-      <div>
-        <Navbar />
-        <div id="layoutSidenav">
-          <Sidebar />
-          <div id="layoutSidenav_content" className="mt-4">
-            <main>
-              <div className="container-fluid">
-                <ol className="breadcrumb mb-4 mt-5">
-                  <li className="breadcrumb-item active">Tambah Data Client</li>
-                </ol>
-                <div className="card mb-4">
-                  <div className="container mb-3 mt-3">
-                    <form
-                      onSubmit={changeOnClick}
-                      encType="multipart/form-data"
-                    >
-                      <div className="form-group">
-                        <label htmlFor="nama" className="form-label">
-                          Nama
-                        </label>
+    <div>
+      <Navbar />
+      <div id="layoutSidenav">
+        <Sidebar />
+        <div id="layoutSidenav_content" className="mt-4">
+          <main>
+            <div className="container-fluid">
+              <ol className="breadcrumb mb-4 mt-5">
+                <li className="breadcrumb-item active">Tambah Data Client</li>
+              </ol>
+              <div className="card mb-4">
+                <div className="container mb-3 mt-3">
+                  <form onSubmit={changeOnClick} encType="multipart/form-data">
+                    <div className="form-group">
+                      <label htmlFor="nama" className="form-label">
+                        Nama
+                      </label>
+                      <input
+                        required={true}
+                        type="text"
+                        value={nama}
+                        onChange={(e) => setNama(e.target.value)}
+                        className="form-control"
+                        placeholder="nama"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="file">Pilih Gambar</label>
+                      <div>
                         <input
                           required={true}
-                          type="text"
-                          value={nama}
-                          onChange={(e) => setNama(e.target.value)}
-                          className="form-control"
-                          placeholder="nama"
+                          type="file"
+                          gambar="gambar"
+                          onChange={onChangeFile}
                         />
                       </div>
-                      <div className="form-group">
-                        <label htmlFor="file">Pilih Gambar</label>
-                        <div>
-                          <input
-                            required={true}
-                            type="file"
-                            gambar="gambar"
-                            onChange={onChangeFile}
-                          />
-                        </div>
-                      </div>
+                    </div>
 
-                      <button className="btn btn-primary" type="submit">
-                        Tambah
-                      </button>
-                    </form>
-                  </div>
+                    <button className="btn btn-primary" type="submit">
+                      Tambah
+                    </button>
+                  </form>
                 </div>
               </div>
-            </main>
-            <Footer />
-          </div>
+            </div>
+          </main>
+          <Footer />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
