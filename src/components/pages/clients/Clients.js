@@ -54,9 +54,15 @@ const Clients = ({ posts, props }) => {
               </ol>
               <div className="card mb-4">
                 <div className="card-header">
-                  <Button variant="success" onClick={handleShow}>
+                  <Link
+                    className="btn btn-success"
+                    to={{
+                      pathname: `/add-client`,
+                    }}
+                    onClick={handleShow}
+                  >
                     Tambah Data
-                  </Button>
+                  </Link>
                 </div>
                 <div className="card-body">
                   <div className="table-responsive">
@@ -120,10 +126,6 @@ const Clients = ({ posts, props }) => {
               </div>
             </div>
           </main>
-          {/* <!-- Modal Tambah Clients--> */}
-          <Modal show={show} onHide={handleClose} animation={true}>
-            <AddClient />
-          </Modal>
 
           <Footer />
         </div>

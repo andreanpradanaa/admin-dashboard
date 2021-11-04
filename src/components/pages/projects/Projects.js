@@ -55,9 +55,15 @@ const Projects = ({ posts }) => {
               </ol>
               <div className="card mb-4">
                 <div className="card-header">
-                  <Button variant="success" onClick={handleShow}>
+                  <Link
+                    className="btn btn-success"
+                    to={{
+                      pathname: `/add-project`,
+                    }}
+                    onClick={handleShow}
+                  >
                     Tambah Data
-                  </Button>
+                  </Link>
                 </div>
                 <div className="card-body">
                   <div className="table-responsive">
@@ -124,11 +130,6 @@ const Projects = ({ posts }) => {
               </div>
             </div>
           </main>
-          {/* Modal Data Project */}
-          <Modal show={show} onHide={handleClose} animation={true}>
-            <AddProject />
-          </Modal>
-          <Footer />
         </div>
       </div>
     </div>

@@ -5,6 +5,9 @@ import { Link, useHistory } from "react-router-dom";
 import { logoutAction } from "../../../container/actions";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Footer from "../../imports/Footer";
+import Navbar from "../../imports/Navbar";
+import Sidebar from "../../imports/Sidebar";
 
 const AddClient = () => {
   const history = useHistory();
@@ -41,7 +44,7 @@ const AddClient = () => {
 
     axios
       .post("https://backend-intens.herokuapp.com/api/teams/add", formData)
-      .then((res) => alert(res.data))
+      .then((res) => alert(res.data), history.push("/teams"))
       .catch((err) => {
         console.log(err);
       });
@@ -49,59 +52,69 @@ const AddClient = () => {
 
   return (
     <div>
-      <>
-        <Modal.Header closeButton>
-          <Modal.Title>Tambah Data Team</Modal.Title>
-        </Modal.Header>
-        <form onSubmit={changeOnClick} encType="multipart/form-data">
-          <Modal.Body>
-            <div className="form-group">
-              <label htmlFor="nama" className="form-label">
-                Nama
-              </label>
-              <input
-                required={true}
-                type="text"
-                value={nama}
-                onChange={(e) => setNama(e.target.value)}
-                className="form-control"
-                placeholder="nama"
-              />
-            </div>
+      <Navbar />
+      <div id="layoutSidenav">
+        <Sidebar />
+        <div id="layoutSidenav_content" className="mt-4">
+          <main>
+            <div className="container-fluid">
+              <ol className="breadcrumb mb-4 mt-5">
+                <li className="breadcrumb-item active">Tambah Data Team</li>
+              </ol>
+              <div className="card mb-4">
+                <div className="container mb-3 mt-3">
+                  <form onSubmit={changeOnClick} encType="multipart/form-data">
+                    <div className="form-group">
+                      <label htmlFor="nama" className="form-label">
+                        Nama
+                      </label>
+                      <input
+                        required={true}
+                        type="text"
+                        value={nama}
+                        onChange={(e) => setNama(e.target.value)}
+                        className="form-control"
+                        placeholder="nama"
+                      />
+                    </div>
 
-            <div className="form-group">
-              <label htmlFor="jabatan" className="form-label">
-                Jabatan
-              </label>
-              <input
-                required={true}
-                type="text"
-                value={jabatan}
-                onChange={(e) => setJabatan(e.target.value)}
-                className="form-control"
-                placeholder="jabatan"
-              />
-            </div>
+                    <div className="form-group">
+                      <label htmlFor="jabatan" className="form-label">
+                        Jabatan
+                      </label>
+                      <input
+                        required={true}
+                        type="text"
+                        value={jabatan}
+                        onChange={(e) => setJabatan(e.target.value)}
+                        className="form-control"
+                        placeholder="jabatan"
+                      />
+                    </div>
 
-            <div className="form-group">
-              <label htmlFor="file">pilih gambar</label>
-              <div>
-                <input
-                  required={true}
-                  type="file"
-                  filename="gambar"
-                  onChange={onChangeFile}
-                />
+                    <div className="form-group">
+                      <label htmlFor="file">pilih gambar</label>
+                      <div>
+                        <input
+                          required={true}
+                          type="file"
+                          filename="gambar"
+                          onChange={onChangeFile}
+                        />
+                      </div>
+                    </div>
+
+                    <button className="btn btn-primary" type="submit">
+                      Tambah
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" type="submit">
-              Tambah
-            </Button>
-          </Modal.Footer>
-        </form>
-      </>
+          </main>
+          <Footer />
+        </div>
+      </div>
     </div>
   );
 };

@@ -3,8 +3,9 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { logoutAction } from "../../../container/actions";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import Footer from "../../imports/Footer";
+import Navbar from "../../imports/Navbar";
+import Sidebar from "../../imports/Sidebar";
 
 const AddClient = ({ posts }) => {
   const history = useHistory();
@@ -40,7 +41,7 @@ const AddClient = ({ posts }) => {
 
     axios
       .post("https://backend-intens.herokuapp.com/api/clients/add", formData)
-      .then((res) => alert(res.data))
+      .then((res) => alert(res.data), history.push("/clients"))
       .catch((err) => {
         console.log(err);
       });
@@ -48,42 +49,59 @@ const AddClient = ({ posts }) => {
 
   return (
     <>
-      <Modal.Header closeButton>
-        <Modal.Title>Tambah Data Client</Modal.Title>
-      </Modal.Header>
-      <form onSubmit={changeOnClick} encType="multipart/form-data">
-        <Modal.Body>
-          <div className="form-group">
-            <label htmlFor="nama" className="form-label">
-              Nama
-            </label>
-            <input
-              required={true}
-              type="text"
-              value={nama}
-              onChange={(e) => setNama(e.target.value)}
-              className="form-control"
-              placeholder="nama"
-            />
+      <div>
+        <Navbar />
+        <div id="layoutSidenav">
+          <Sidebar />
+          <div id="layoutSidenav_content" className="mt-4">
+            <main>
+              <div className="container-fluid">
+                <ol className="breadcrumb mb-4 mt-5">
+                  <li className="breadcrumb-item active">Tambah Data Client</li>
+                </ol>
+                <div className="card mb-4">
+                  <div className="container mb-3 mt-3">
+                    <form
+                      onSubmit={changeOnClick}
+                      encType="multipart/form-data"
+                    >
+                      <div className="form-group">
+                        <label htmlFor="nama" className="form-label">
+                          Nama
+                        </label>
+                        <input
+                          required={true}
+                          type="text"
+                          value={nama}
+                          onChange={(e) => setNama(e.target.value)}
+                          className="form-control"
+                          placeholder="nama"
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="file">Pilih Gambar</label>
+                        <div>
+                          <input
+                            required={true}
+                            type="file"
+                            gambar="gambar"
+                            onChange={onChangeFile}
+                          />
+                        </div>
+                      </div>
+
+                      <button className="btn btn-primary" type="submit">
+                        Tambah
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </main>
+            <Footer />
           </div>
-          <div className="form-group">
-            <label htmlFor="file">Pilih Gambar</label>
-            <div>
-              <input
-                required={true}
-                type="file"
-                gambar="gambar"
-                onChange={onChangeFile}
-              />
-            </div>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" type="submit">
-            Tambah
-          </Button>
-        </Modal.Footer>
-      </form>
+        </div>
+      </div>
     </>
   );
 };

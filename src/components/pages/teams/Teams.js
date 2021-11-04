@@ -56,9 +56,15 @@ const Teams = ({ posts }) => {
               </ol>
               <div className="card mb-4">
                 <div className="card-header">
-                  <Button variant="success" onClick={handleShow}>
+                  <Link
+                    className="btn btn-success"
+                    to={{
+                      pathname: `/add-team`,
+                    }}
+                    onClick={handleShow}
+                  >
                     Tambah Data
-                  </Button>
+                  </Link>
                 </div>
                 <div className="card-body">
                   <div className="table-responsive">
@@ -125,10 +131,6 @@ const Teams = ({ posts }) => {
               </div>
             </div>
           </main>
-          {/* <!-- Modal Tambah Teams--> */}
-          <Modal show={show} onHide={handleClose} animation={true}>
-            <AddTeam />
-          </Modal>
           <Footer />
         </div>
       </div>
